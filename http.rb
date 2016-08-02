@@ -904,6 +904,7 @@ module Net   #:nodoc:
             buf = "CONNECT #{@address}:#{@port} HTTP/#{HTTPVersion}\r\n"
             buf << "Host: #{@address}:#{@port}\r\n"
             if proxy_user
+              ##### 
               puts "##### .rvm/rubies/ruby-2.0.0-p645/lib/ruby/2.0.0/net | proxy: #{proxy_user}:#{proxy_pass}"
               credential = ["#{proxy_user}:#{proxy_pass}"].pack('m')
               credential.delete!("\r\n")
@@ -918,6 +919,7 @@ module Net   #:nodoc:
             s.session = @ssl_session if @ssl_session
           end
           # Server Name Indication (SNI) RFC 3546
+          #####
           puts "##### .rvm/rubies/ruby-2.0.0-p645/lib/ruby/2.0.0/net | @address: #{@address}"
           s.hostname = @address if s.respond_to? :hostname=
           Timeout.timeout(@open_timeout, Net::OpenTimeout) { s.connect }
